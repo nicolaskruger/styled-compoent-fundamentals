@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { BrowserRouter, RouteProps, Switch } from "react-router-dom";
 import { FRONTEND_ROUTES } from "../../constants";
-import { AdaptBasedOnProps, ExtendingEtylesScreen, GetStartScreen, HomeScreen, PassedProps, PseudoScreen, StyleAnyComponentScreen } from "../../ui";
+import { AdaptBasedOnProps, AttachingAdditionalPropsScreen, ExtendingEtylesScreen, GetStartScreen, GlobalStyleScreen, HomeScreen, PassedProps, PseudoScreen, StyleAnyComponentScreen } from "../../ui";
 import { PublicRoute } from "../custom/public/publict.route";
 
 
@@ -11,7 +11,9 @@ const { HOME,
     EXTEND_STYLES,
     STYLE_ANY_COMPONENT,
     PASSED_PROPS,
-    PSEUDO
+    PSEUDO,
+    GLOBAL_STYLE,
+    ATTACHING_ADDITIONAL_PROPS
 } = FRONTEND_ROUTES;
 
 type RouteBuild = {
@@ -24,6 +26,18 @@ type RouteBuild = {
 
 const RouterBuilder: FC = ({ children }) => {
     const builder: RouteBuild[] = [
+        {
+            CustomRoute: PublicRoute,
+            component: AttachingAdditionalPropsScreen,
+            exact: false,
+            path: ATTACHING_ADDITIONAL_PROPS
+        },
+        {
+            CustomRoute: PublicRoute,
+            component: GlobalStyleScreen,
+            exact: false,
+            path: GLOBAL_STYLE
+        },
         {
             CustomRoute: PublicRoute,
             component: PseudoScreen,

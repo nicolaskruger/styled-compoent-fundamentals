@@ -4,4 +4,6 @@ export * from "./03extending-styles/extendig-styles.screen";
 export * from "./04style-any-component/style-any-component.screen";
 export * from "./05passed-props/passed-props.screen";
 export * from "./06pseudo/pseudo.screen";
+export * from "./07global-style/global-style.screen";
+export * from "./08attaching-additional-props/attaching-additional-props.screen";
 export * from "./home/home.screen";
