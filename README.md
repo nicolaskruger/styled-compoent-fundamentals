@@ -32,4 +32,4 @@ npm start
 
 ## :spider_web: Site
 
-[link](https://github.com/nicolaskruger/styled-compoent-fundamentals)
+[link](https://nicolaskruger.github.io/styled-compoent-fundamentals/)
