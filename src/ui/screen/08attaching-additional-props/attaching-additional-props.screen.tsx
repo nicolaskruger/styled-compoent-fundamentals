@@ -2,10 +2,11 @@ import { FC } from "react";
 import styled from "styled-components";
 
 type InputProps = {
-    size?: string
+    size?: string,
+    test?: string
 };
 
-const Input = styled.input.attrs<InputProps>(props => ({
+const Input = styled.input.attrs((props: InputProps) => ({
     type: "text",
     size: props.size || "1em"
 }))`
@@ -17,6 +18,11 @@ const Input = styled.input.attrs<InputProps>(props => ({
   margin: ${props => props.size};
   padding: ${props => props.size};
 `;
+const PassswordInput = styled(Input).attrs({
+    type: "password"
+})`
+    border: 2px solid aqua;
+`;
 
 const AttachingAdditionalPropsScreen: FC = () => {
     return (
@@ -24,6 +30,8 @@ const AttachingAdditionalPropsScreen: FC = () => {
             <Input placeholder="A small text input" />
             <br />
             <Input placeholder="A bigger text input" size="2em" />
+            <br />
+            <PassswordInput placeholder="password" />
         </div>
     )
 }

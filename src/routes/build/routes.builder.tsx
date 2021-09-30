@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { BrowserRouter, RouteProps, Switch } from "react-router-dom";
 import { FRONTEND_ROUTES } from "../../constants";
-import { AdaptBasedOnProps, AttachingAdditionalPropsScreen, ExtendingEtylesScreen, GetStartScreen, GlobalStyleScreen, HomeScreen, PassedProps, PseudoScreen, StyleAnyComponentScreen } from "../../ui";
+import { AdaptBasedOnProps, AnimationScreen, AttachingAdditionalPropsScreen, ExtendingEtylesScreen, GetStartScreen, GlobalStyleScreen, HomeScreen, PassedProps, PseudoScreen, ReferingToOtherComponentScreen, StyleAnyComponentScreen, StyleObjectScreen, ThemeFunction, ThemeScreen } from "../../ui";
 import { PublicRoute } from "../custom/public/publict.route";
 
 
@@ -13,7 +13,12 @@ const { HOME,
     PASSED_PROPS,
     PSEUDO,
     GLOBAL_STYLE,
-    ATTACHING_ADDITIONAL_PROPS
+    ATTACHING_ADDITIONAL_PROPS,
+    ANIMATIONS,
+    THEME,
+    THEME_FUNCTION,
+    REFERING_TO_OTHER_COMPONENT,
+    STYLE_OBJECTS
 } = FRONTEND_ROUTES;
 
 type RouteBuild = {
@@ -28,14 +33,44 @@ const RouterBuilder: FC = ({ children }) => {
     const builder: RouteBuild[] = [
         {
             CustomRoute: PublicRoute,
+            component: StyleObjectScreen,
+            exact: true,
+            path: STYLE_OBJECTS
+        },
+        {
+            CustomRoute: PublicRoute,
+            component: ReferingToOtherComponentScreen,
+            exact: true,
+            path: REFERING_TO_OTHER_COMPONENT
+        },
+        {
+            CustomRoute: PublicRoute,
+            component: ThemeFunction,
+            exact: true,
+            path: THEME_FUNCTION
+        },
+        {
+            CustomRoute: PublicRoute,
+            component: ThemeScreen,
+            exact: true,
+            path: THEME
+        },
+        {
+            CustomRoute: PublicRoute,
+            component: AnimationScreen,
+            exact: true,
+            path: ANIMATIONS
+        },
+        {
+            CustomRoute: PublicRoute,
             component: AttachingAdditionalPropsScreen,
-            exact: false,
+            exact: true,
             path: ATTACHING_ADDITIONAL_PROPS
         },
         {
             CustomRoute: PublicRoute,
             component: GlobalStyleScreen,
-            exact: false,
+            exact: true,
             path: GLOBAL_STYLE
         },
         {
